@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f5f0">
+  <meta name="description" content="AnchorWorld: Spatially Controllable 3D World Generation via Optimal Transport.">
+  <title>AnchorWorld — Spatially Controllable 3D World Generation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;450;500;550;600;650;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="AnchorWorld home"><span class="brand-mark"><i></i><i></i><i></i><i></i></span><span>ANCHOR<span class="brand-light">WORLD</span></span></a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation"><span></span><span></span></button>
+    <nav id="primary-nav" class="nav-links"><a href="#method">Method</a><a href="#results">Results</a><a href="#paper">Paper</a><a href="#citation">Citation</a></nav>
+    <a class="nav-paper" href="assets/paper.pdf" target="_blank" rel="noreferrer">Read the paper <span>↗</span></a>
+  </header>
+
+  <main id="top">
+    <section class="hero section-wrap">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> SPATIALLY CONTROLLED 3D GENERATION <span class="eyebrow-rule"></span> CVPR 2027</div>
+        <h1>Worlds with<br><em>a sense of place.</em></h1>
+        <p class="hero-deck">From a handful of text anchors to a world that feels connected. Guide what appears where—and shape the paths that bring it all together.</p>
+        <div class="hero-actions"><a class="button button-dark" href="#results">Explore the results <span>↓</span></a><a class="button button-outline" href="assets/paper.pdf" target="_blank" rel="noreferrer"><span class="pdf-icon">PDF</span> Read the paper <span>↗</span></a></div>
+        <div class="hero-meta"><span><b>01</b> Sparse text anchors</span><span><b>02</b> Optimal transport</span><span><b>03</b> A shared 3D world</span></div>
+      </div>
+      <div class="hero-art">
+        <div class="art-frame"><img src="assets/anchorworld-teaser.png" alt="AnchorWorld generated worlds: a connected city, forest, and river landscape, with road and wall structure variants" fetchpriority="high"><div class="art-badge"><span class="badge-pulse"></span> GENERATED 3D GAUSSIANS <span class="badge-sep">/</span> SEED 42</div></div>
+        <div class="art-caption"><span>One spatial brief.</span> <span>Many possible worlds.</span></div>
+        <div class="hero-index">FIG 01 <span>—</span> WORLD OVERVIEW</div>
+      </div>
+      <div class="hero-stamp" aria-hidden="true"><span>CONTROL</span><span class="stamp-star">✳</span><span>COMPOSE</span><span class="stamp-star">✳</span><span>EXPLORE</span></div>
+    </section>
+
+    <section class="ticker" aria-label="Research highlights"><div class="ticker-track"><span>SPATIAL TOKEN TRANSPORT <i>✳</i> SHARED-WORLD GENERATION <i>✳</i> COORDINATED GAUSSIAN DECODING <i>✳</i> SPATIAL TOKEN TRANSPORT <i>✳</i> SHARED-WORLD GENERATION <i>✳</i> COORDINATED GAUSSIAN DECODING <i>✳</i></span></div></section>
+
+    <section id="method" class="method section-wrap section-pad">
+      <div class="section-heading"><div><div class="eyebrow"><span class="section-number">01</span> THE IDEA</div><h2>Place with intent.<br><em>Generate with coherence.</em></h2></div><p class="section-intro">A world is more than a collection of prompts. AnchorWorld gives each prompt a place, connects their meaning, and carries one consistent 3D state across the whole scene.</p></div>
+      <div class="method-grid">
+        <article class="method-card"><div class="card-top"><span class="card-index">01 / 03</span><span class="card-symbol symbol-map">⌖</span></div><div class="card-visual anchor-visual"><div class="map-grid"><span class="anchor-pin pin-forest">Forest<small>“dense pine woods”</small></span><span class="anchor-pin pin-city">City<small>“a quiet old town”</small></span><span class="anchor-pin pin-water">Lake<small>“clear alpine water”</small></span><svg viewBox="0 0 400 120" preserveAspectRatio="none" aria-hidden="true"><path d="M12 90 C 70 93, 95 24, 146 45 S 225 104, 268 67 S 331 28, 388 44"/></svg></div></div><h3>Spatial token transport</h3><p>Prompts become feature distributions. Optimal transport finds content-aware correspondences and blends them by spatial influence.</p><div class="card-foot"><span>WASSERSTEIN BARYCENTERS</span><span>↗</span></div></article>
+        <article class="method-card"><div class="card-top"><span class="card-index">02 / 03</span><span class="card-symbol symbol-layers">◫</span></div><div class="card-visual stage-visual"><div class="stage-flow"><div class="flow-node"><span class="node-icon">⌖</span><b>Anchors</b><small>local prompts</small></div><span class="flow-arrow">→</span><div class="flow-node active"><span class="node-icon">◈</span><b>SS stage</b><small>shared structure</small></div><span class="flow-arrow">→</span><div class="flow-node"><span class="node-icon">▧</span><b>SLAT stage</b><small>world features</small></div></div><div class="shared-bar"><span class="shared-dot"></span> ONE SHARED WORLD STATE</div><div class="stage-note">Optional sketch-guided structure composition</div></div><h3>Stage-specific world generation</h3><p>Different stages use the fusion suited to their role, while overlapping windows update a shared world representation.</p><div class="card-foot"><span>STRUCTURE → FEATURES</span><span>↗</span></div></article>
+        <article class="method-card"><div class="card-top"><span class="card-index">03 / 03</span><span class="card-symbol symbol-cube">◇</span></div><div class="card-visual decode-visual"><div class="decode-scene"><div class="scene-plane"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="window window-a">WINDOW A</span><span class="window window-b">WINDOW B</span><span class="window window-c">WINDOW C</span><span class="merge-node">⊕</span><span class="gaussian-dot d1"></span><span class="gaussian-dot d2"></span><span class="gaussian-dot d3"></span><span class="gaussian-dot d4"></span></div><div class="decode-label">OVERLAP → ONE CONSISTENT SCENE</div></div><h3>Coordinated Gaussian decoding</h3><p>Overlapping predictions align in world space, pool before nonlinear decoding, and share opacity without losing scene coverage.</p><div class="card-foot"><span>ALIGN · POOL · REDISTRIBUTE</span><span>↗</span></div></article>
+      </div>
+    </section>
+
+    <section id="results" class="results-section">
+      <div class="section-wrap section-pad results-inner"><div class="section-heading results-heading"><div><div class="eyebrow"><span class="section-number">02</span> WORLDS IN VIEW</div><h2>Take a closer<br><em>look around.</em></h2></div><div class="result-controls"><p>Move between generated scenes. Each view is rendered from the paper’s 3D Gaussian outputs.</p><div class="scene-tabs" role="tablist" aria-label="Generated world"><button class="scene-tab active" type="button" role="tab" aria-selected="true" data-scene="river">01 <span>River</span></button><button class="scene-tab" type="button" role="tab" aria-selected="false" data-scene="road">02 <span>Road</span></button><button class="scene-tab" type="button" role="tab" aria-selected="false" data-scene="wall">03 <span>Wall</span></button></div></div></div>
+        <div class="scene-viewer"><div class="scene-image-wrap"><img id="scene-image" src="assets/anchorworld-teaser.png" alt="River, city, and forest generated world from an oblique view" loading="lazy"><div class="scene-overlay-top"><span class="live-dot"></span> <span id="scene-label">RIVER / CITY / FOREST</span></div><div class="scene-overlay-bottom"><span>OBLIQUE VIEW</span><span>SEED 42</span></div></div><aside class="scene-aside"><div class="scene-aside-top"><span class="eyebrow">SCENE 0<span id="scene-count">1</span></span><span class="scene-compass">N <i>↑</i></span></div><h3 id="scene-title">A river finds<br>its way home.</h3><p id="scene-description">A winding river links quiet green forest to a compact urban edge. Sparse text anchors set the character of each region; the path sketch gives the landscape a way through.</p><div class="scene-tags"><span>TEXT ANCHORS</span><span>PATH SKETCH</span><span>3D GAUSSIANS</span></div><div class="scene-aside-foot"><span>STRUCTURE VARIANT</span><span id="scene-variant">RIVER PATH</span></div></aside></div>
+        <div class="gallery-link-row"><span class="gallery-note"><span class="gallery-note-dot"></span>SELECTED QUALITATIVE EXAMPLES · NOT BENCHMARK SAMPLES</span><a href="assets/world-gallery.pdf" target="_blank" rel="noreferrer">Open the full gallery <span>↗</span></a></div>
+      </div>
+    </section>
+
+    <section class="evidence section-wrap section-pad"><div class="section-heading"><div><div class="eyebrow"><span class="section-number">03</span> UNDER THE HOOD</div><h2>See how the pieces<br><em>fit together.</em></h2></div><p class="section-intro">The supplementary material goes deeper: controlled decoder comparisons, sketch-guided layouts, and analysis of how the method scales.</p></div><div class="evidence-grid"><a class="evidence-card" href="assets/decoder-ablation.pdf" target="_blank" rel="noreferrer"><div class="evidence-art evidence-decoder"><div class="mini-scenes"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span></div><div class="mini-caption">RGB · OPACITY · DEPTH</div></div><div class="evidence-card-bottom"><div><span class="eyebrow">ANALYSIS 01</span><h3>Decoder coordination</h3><p>Matched latent state · 5 decoding conditions</p></div><span class="evidence-arrow">↗</span></div></a><a class="evidence-card" href="assets/structure-pilots.pdf" target="_blank" rel="noreferrer"><div class="evidence-art evidence-structure"><div class="structure-lines"><span></span><span></span><span></span></div><div class="structure-pills"><b>ROAD</b><b>RIVER</b><b>WALL</b></div></div><div class="evidence-card-bottom"><div><span class="eyebrow">ANALYSIS 02</span><h3>Sketch-guided structure</h3><p>From a simple path to a composed world</p></div><span class="evidence-arrow">↗</span></div></a><a class="evidence-card paper-evidence" href="assets/supplementary.pdf" target="_blank" rel="noreferrer"><div class="paper-evidence-art"><div class="paper-lines"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="paper-stamp">EXTRA<br>DETAILS<span>↗</span></div><div class="paper-label">SUPPLEMENTARY<br>MATERIAL</div></div><div class="evidence-card-bottom"><div><span class="eyebrow">READ MORE</span><h3>Supplementary material</h3><p>Additional experiments &amp; diagnostics</p></div><span class="evidence-arrow">↗</span></div></a></div></section>
+
+    <section id="paper" class="paper-section"><div class="paper-section-inner section-wrap"><div class="paper-copy"><div class="eyebrow"><span class="section-number">04</span> THE PAPER</div><h2>A small set<br>of anchors.<br><em>A whole world.</em></h2><p>AnchorWorld explores a training-free approach to spatially controllable 3D world generation via optimal transport—connecting local prompts into a consistent, explorable scene.</p><div class="paper-buttons"><a class="button button-cream" href="assets/paper.pdf" target="_blank" rel="noreferrer"><span class="pdf-icon">PDF</span> Full paper <span>↗</span></a><a class="button button-glass" href="assets/supplementary.pdf" target="_blank" rel="noreferrer">Supplementary <span>↗</span></a></div><div class="blind-note"><span>◉</span> Author details are withheld for double-blind review.</div></div><div class="paper-cover" aria-label="AnchorWorld paper cover preview"><div class="cover-top"><span>CVPR 2027</span><span>RESEARCH PAPER&nbsp; / &nbsp;3D GENERATION</span></div><div class="cover-title"><span class="cover-kicker">SPATIALLY CONTROLLABLE</span><strong>Anchor<br><em>World</em></strong><span class="cover-subtitle">via Optimal Transport</span></div><div class="cover-art"><div class="cover-grid"></div><div class="cover-land land-back"></div><div class="cover-land land-front"></div><div class="cover-river"></div><span class="cover-anchor ca-one"></span><span class="cover-anchor ca-two"></span><span class="cover-anchor ca-three"></span><div class="cover-art-caption">SPARSE ANCHORS → CONNECTED WORLDS</div></div><div class="cover-foot"><span>SPATIAL TOKEN TRANSPORT</span><span>STAGE-SPECIFIC GENERATION</span><span>COORDINATED DECODING</span></div></div></div></section>
+
+    <section id="citation" class="citation-section section-wrap section-pad"><div class="citation-header"><div><div class="eyebrow"><span class="section-number">05</span> CITE THIS WORK</div><h2>Keep the idea<br><em>in circulation.</em></h2></div><button id="copy-citation" class="copy-button" type="button"><span>▣</span> <span id="copy-label">Copy BibTeX</span></button></div><div class="citation-box"><div class="citation-box-top"><span><i></i> BIBTEX</span><span>ANCHORWORLD.BIB</span></div><pre><code id="bibtex">@inproceedings{anchorworld2027,
+  title     = {AnchorWorld: Spatially Controllable 3D World Generation via Optimal Transport},
+  author    = {Anonymous},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year      = {2027}
+}</code></pre><div class="citation-note">Anonymized citation for double-blind review.</div></div></section>
+  </main>
+
+  <footer class="site-footer"><a class="brand footer-brand" href="#top"><span class="brand-mark"><i></i><i></i><i></i><i></i></span><span>ANCHOR<span class="brand-light">WORLD</span></span></a><span class="footer-center">MAKE SPACE FOR THE UNEXPECTED <i>✳</i></span><a class="back-top" href="#top">BACK TO TOP ↑</a></footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
